@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>BiblioApp - Lista de Usuarios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    body {
+      background-color: #f5f7fa;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      height: 100vh;
+      position: fixed;
+      border-right: 1px solid #dee2e6;
+    }
+
+    .sidebar .user-info {
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .sidebar .user-info img {
+      border-radius: 50%;
+    }
+
+    .sidebar .nav-link.active {
+      background-color: #f8d7da;
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+
+    .topbar {
+      background-color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: #f0f8ff;
+      cursor: pointer;
+    }
+
+    .table thead th {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar p-3">
+    <div class="text-center mb-3">
+      <h5><i class="bi bi-hospital"></i>Library Life</h5>
+    </div>
+    <div class="user-info">
+      <img src="/stylesheets/img/foto1.jpg" width="70" alt="User">
+      <h6 class="mt-2 mb-0">Jorge Oviedo</h6>
+      <small>Administrador</small>
+    </div>
+    <div class="px-2">
+      <div class="nav flex-column">
+        <a href="/books" class="nav-link <%= currentPath === '/' ? 'bg-danger-subtle text-dark' : '' %>">
+          <i class="bi bi-house me-2"></i>Libros
+        </a>
+        <a href="/books/authors_list"
+          class="nav-link <%= currentPath === '/books/authors_list' ? 'bg-danger-subtle text-dark' : '' %>">
+          <i class="bi bi-house me-2"></i>Autores
+        </a>
+        <a href="/books/users/list"
+          class="nav-link <%= currentPath === '/books/users/list' ? 'bg-danger-subtle text-dark' : '' %>">
+          <i class="bi bi-person-plus me-2"></i>Lista Usuarios
+        </a>
+        <a href="/books/editorials"
+          class="nav-link <%= currentPath === '/books/editorials' ? 'bg-danger-subtle text-dark' : '' %>">
+          <i class="bi bi-building me-2"></i>Editoriales
+        </a>
+        <a href="/books/categorias"
+          class="nav-link <%= currentPath === '/books/categorias' ? 'bg-danger-subtle text-dark' : '' %>">
+          <i class="bi bi-tags me-2"></i>Categorías
+        </a>
+        <a href="/books/loans/all" class="nav-link">
+          <i class="bi bi-people me-2"></i>Préstamos de Libros
+        </a>
+        <a href="/books/reporte"
+          class="nav-link <%= currentPath === '/books/reporte' ? 'bg-danger-subtle text-dark' : '' %>">
+          <i class="bi bi-person-plus me-2"></i>reportes
+        </a>
+        <a href="/books/logout" class="nav-link">
+          <i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Topbar -->
+    <div class="topbar">
+      <h5 class="mb-0 fw-bold">Usuarios</h5>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-bell me-3"></i>
+        <span>Jorge Oviedo</span>
+        <img src="/stylesheets/img/foto1.jpg" alt="User" class="ms-2" width="35" height="35"
+          style="border-radius: 50%;">
+      </div>
+    </div>
+
+    <% if (messages.success) { %>
+      <div class="alert alert-success mt-3" id="successAlert"><%- messages.success %></div>
+      <% } %>
+        <% if (messages.error) { %>
+          <div class="alert alert-danger mt-3" id="errorAlert"><%- messages.error %></div>
+          <% } %>
+
+            <div class="card mt-4 shadow-sm">
+              <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+                <h6 class="mb-0"><i class="bi bi-person-lines-fill me-2"></i> Lista de Usuarios</h6>
+                <div>
+                  <a href="/books/users/list/pdf" class="btn btn-danger btn-sm me-2" target="_blank">
+                    <i class="bi bi-file-earmark-pdf me-1"></i> Descargar en PDF
+                  </a>
+                  <a href="/books/users/add" class="btn btn-light btn-sm">
+                    <i class="bi bi-plus-circle me-1"></i> Nuevo Usuario
+                  </a>
+                </div>
+              </div>
+              <!-- ...existing code... -->
+              <div class="card-body">
+                <% if(users.length) { %>
+                  <div class="input-group mb-3" style="max-width: 350px;">
+                    <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                    <input type="text" id="searchUser" class="form-control" placeholder="Buscar usuario o documento...">
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-hover align-middle text-center" id="usersTable">
+                      <thead class="table-light">
+                        <tr>
+                          <th>#</th>
+                          <th>Usuario</th>
+                          <th>Tipo Doc</th>
+                          <th>Número Doc</th>
+                          <th>Estado</th>
+                          <th>Acción</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% users.forEach(function(user, index) { %>
+                          <tr>
+                            <td><strong>
+                                <%= index + 1 %>
+                              </strong></td>
+                            <td>
+                              <%= user.username %>
+                            </td>
+                            <td>
+                              <%= user.tipo_documento || '-' %>
+                            </td>
+                            <td>
+                              <%= user.documento || '-' %>
+                            </td>
+                            <td>
+                              <% if (user.activo) { %>
+                                <span class="badge bg-success">Activo</span>
+                                <% } else { %>
+                                  <span class="badge bg-danger">Inactivo</span>
+                                  <% } %>
+                            </td>
+                            <td>
+                              <% if (user.activo) { %>
+                                <a href="/books/users/edit/<%= user.id %>" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="/books/users/inactivar/<%= user.id %>"
+                                  class="btn btn-warning btn-sm">Inactivar</a>
+                                <% } else { %>
+                                  <a href="/books/users/activar/<%= user.id %>"
+                                    class="btn btn-success btn-sm">Activar</a>
+                                  <% } %>
+                            </td>
+                          </tr>
+                          <% }) %>
+                      </tbody>
+                    </table>
+                  </div>
+                  <% } else { %>
+                    <p class="text-center text-muted">¡No se encontraron usuarios!</p>
+                    <% } %>
+              </div>
+            </div>
+  </div>
+  <footer class="bg-white text-center text-muted py-3 border-top mt-4" style="margin-left: 250px;">
+    <div class="container">
+      <small>&copy; <%= new Date().getFullYear() %> Biblioteca Georgie. Todos los derechos
+          reservados.</small><br>
+      <small>Desarrollado por Jorge Oviedo</small>
+    </div>
+  </footer>
+
+  <script>
+    // Filtro de usuarios por nombre o documento
+    document.getElementById('searchUser').addEventListener('keyup', function () {
+      const value = this.value.toLowerCase();
+      const rows = document.querySelectorAll('#usersTable tbody tr');
+      rows.forEach(row => {
+        const username = row.children[1].textContent.toLowerCase();
+        const documento = row.children[3].textContent.toLowerCase();
+        row.style.display = (username.includes(value) || documento.includes(value)) ? '' : 'none';
+      });
+    });
+  </script>
+
+
+
+  <script>
+    setTimeout(() => {
+      const success = document.getElementById('successAlert');
+      const error = document.getElementById('errorAlert');
+      if (success) success.style.display = 'none';
+      if (error) error.style.display = 'none';
+    }, 3000);
+  </script>
+
+
+</body>
+
+</html>

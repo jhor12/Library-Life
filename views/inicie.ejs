@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblio App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="/img/logo-biblio.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: #f5f7fa;
+    }
+    .navbar-brand span {
+      background: linear-gradient(90deg, #d1d5db, #e5e7eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-bg {
+      background: #fff;
+      border-bottom: 1px solid #dee2e6;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .author-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    .category-icon {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+    }
+    .footer-link:hover {
+      color: #fff !important;
+    }
+    .footer {
+      background: #0d6efd;
+      color: #e5e7eb;
+    }
+    .footer h3 {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+      <img src="/img/logo-biblio.svg" alt="Biblio App Logo" height="40" width="40" class="me-2">
+      <span class="fs-4 fw-bold">Library Life</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Inicio</a>
+        </li>
+        <li class="nav-item d-lg-none mt-2">
+          <a href="/books/login" class="btn btn-outline-light w-100">Ingresar</a>
+        </li>
+      </ul>
+      <a href="/books/login" class="btn btn-light ms-3 d-none d-lg-inline-flex">Ingresar</a>
+    </div>
+  </div>
+</nav>
+<!-- FIN HEADER -->
+
+<!-- HERO -->
+<div class="hero-bg py-5" style="margin-top: 70px;">
+  <div class="container text-center">
+    <h1 class="display-4 fw-bold mb-3" style="background: linear-gradient(90deg, #2563eb, #6366f1, #a21caf);">Library Life</h1>
+    <p class="lead mb-4">Tu biblioteca online inteligente, rápida y segura. Accede a miles de libros desde cualquier lugar.</p>
+    <a href="/books/login" class="btn btn-primary btn-lg px-5 py-3 fw-semibold">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="me-2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+      </svg>
+      Ingresar
+    </a>
+  </div>
+</div>
+<!-- FIN HERO -->
+
+<!-- Sección de autores destacados -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="text-secondary fs-5">Conoce a los escritores más influyentes de Colombia</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <!-- Autor 1 -->
+      <div class="col-12 col-md-4">
+        <div class="bg-light rounded-4 p-4 text-center shadow-sm h-100">
+          <img src="data:image/webp;base64,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" alt="Gabriel García Márquez" class="author-img">
+          <h4 class="fw-semibold text-dark">José Eustasio Rivera</h4>
+        </div>
+      </div>
+      <!-- Autor 2 -->
+      <div class="col-12 col-md-4">
+        <div class="bg-light rounded-4 p-4 text-center shadow-sm h-100">
+          <img src="https://hablemos-escritoras-as.s3.us-west-1.amazonaws.com/qf0h97dmtdtgjk40rv8deidt18h6" alt="Jane Austen" class="author-img">
+          <h4 class="fw-semibold text-dark">Laura Restrepo</h4>
+        </div>
+      </div>
+      <!-- Autor 3 -->
+      <div class="col-12 col-md-4">
+        <div class="bg-light rounded-4 p-4 text-center shadow-sm h-100">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/ea06d916332247.562aa1ad283e5.jpg" alt="Jorge Luis Borges" class="author-img">
+          <h4 class="fw-semibold text-dark">Gabriel García Márquez</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de categorías -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h3 class="text-center fw-bold mb-5">Categorías</h3>
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-4">
+        <a href="#" class="d-block p-4 bg-white rounded-4 shadow-sm text-center text-decoration-none h-100">
+          <div class="category-icon text-primary">📚</div>
+          <h4 class="fw-semibold text-dark">Literatura</h4>
+        </a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-4">
+        <a href="#" class="d-block p-4 bg-white rounded-4 shadow-sm text-center text-decoration-none h-100">
+          <div class="category-icon text-success">🔬</div>
+          <h4 class="fw-semibold text-dark">Ciencia</h4>
+        </a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-4">
+        <a href="#" class="d-block p-4 bg-white rounded-4 shadow-sm text-center text-decoration-none h-100">
+          <div class="category-icon text-danger">💖</div>
+          <h4 class="fw-semibold text-dark">Romance</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer py-5 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <h3 class="fw-semibold text-white mb-4">Explorar</h3>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none footer-link">Catálogo</a></li>
+          <li><a href="#" class="text-light text-decoration-none footer-link">Novedades</a></li>
+          <li><a href="#" class="text-light text-decoration-none footer-link">Autores</a></li>
+          <li><a href="#" class="text-light text-decoration-none footer-link">Categorías</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4">
+        <h3 class="fw-semibold text-white mb-4">Recursos</h3>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none footer-link">Ayuda</a></li>
+          <li><a href="#" class="text-light text-decoration-none footer-link">Preguntas Frecuentes</a></li>
+          <li><a href="#" class="text-light text-decoration-none footer-link">Términos y Condiciones</a></li>
+          <li><a href="#" class="text-light text-decoration-none footer-link">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4">
+        <h3 class="fw-semibold text-white mb-4">Contacto</h3>
+        <ul class="list-unstyled">
+          <li class="mb-2"><span class="text-light">Contact@librarylife.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-top border-light mt-4 pt-4 text-center text-light small">
+      &copy; 2025 Library Life.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/home-scripts.js"></script>
+<script src="/js/menu-mobile.js"></script>
+</body>
+</html>

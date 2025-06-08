@@ -1,0 +1,276 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+    /* Efecto hover para los botones */
+    .btn:hover {
+      opacity: 0.8;
+  }
+
+  /* Agregar transición suave */
+  .btn {
+      transition: opacity 0.3s ease;
+  }
+
+  /* Efecto hover para los botones específicos */
+  .btn-success:hover {
+      background-color: #28a745;
+      border-color: #28a745;
+  }
+
+  .btn-danger:hover {
+      background-color: #dc3545;
+      border-color: #dc3545;
+  }
+
+  /* Estilo de alerta */
+  .alert {
+      transition: opacity 0.5s ease-out;
+  }
+  /* Fondo y margen general */
+body {
+  background-color: #f4f7fc;
+  margin-top: 50px;
+}
+
+/* Mejorar la presentación de las alertas */
+.alert {
+  transition: opacity 0.5s ease-out;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de la alerta de éxito */
+.alert-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+/* Estilo de la alerta de error */
+.alert-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Botones */
+.btn {
+  border-radius: 5px;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Hover para botones específicos */
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Caja de la tarjeta */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #343a40;
+  color: white;
+  font-weight: bold;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.card-body {
+  padding: 20px;
+  background-color: white;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* Estilos de la tabla */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table thead th, .table tbody td {
+  padding: 12px;
+  font-size: 14px;
+}
+
+.nav-pills .nav-link {
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #0056b3;
+}
+
+/* Fondo de la página */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Diseño de mensaje de "No hay libros" */
+.text-center {
+  font-size: 18px;
+  color: #6c757d;
+  font-weight: 500;
+}
+.carousel-item img {
+  width: 100%;
+  height: 200px; /* o el alto que desees */
+  object-fit: cover; /* esto evita que se distorsione */
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}        
+.card.custom {
+			border: none;
+			border-radius: 1rem;
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+		}
+
+		.card-header.custom {
+			background-color: #343a40;
+			color: #fff;
+			font-weight: 600;
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+		}
+body {
+			background-color: #f7f7f7;
+			font-family: 'Arial', sans-serif;
+		}
+
+		.card.custom {
+			border: none;
+			border-radius: 1rem;
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+			background-color: #ffffff;
+		}
+
+		.card-header.custom {
+			background-color: #343a40;
+			color: #fff;
+			font-weight: 600;
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+			font-size: 1.25rem;
+		}
+
+		.card-body {
+			padding: 2rem;
+		}
+
+		.form-label {
+			font-weight: 600;
+			font-size: 1rem;
+			color: #495057;
+		}
+
+		.form-control {
+			border-radius: 0.5rem;
+			box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+		}
+
+		.btn-secondary {
+			border-radius: 0.5rem;
+			font-weight: 500;
+		}
+
+		.btn-info {
+			border-radius: 0.5rem;
+			font-weight: 600;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn-info:hover {
+			background-color: #17a2b8;
+		}
+
+		.alert-danger {
+			border-radius: 0.5rem;
+			font-weight: 600;
+		}
+
+		.d-flex {
+			margin-top: 1rem;
+		}
+
+		.d-flex .btn {
+			width: 120px;
+		}    
+.card.custom {
+			border: none;
+			border-radius: 1rem;
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+			background-color: #ffffff;
+		}
+
+		.card-header.custom {
+			background-color: #343a40;
+			color: #fff;
+			font-weight: 600;
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+			font-size: 1.25rem;
+		}
+
+		.card-body {
+			padding: 2rem;
+		}
+
+		.form-label {
+			font-weight: 600;
+			font-size: 1rem;
+			color: #495057;
+		}
+
+		.form-control {
+			border-radius: 0.5rem;
+			box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+		}
+
+		.btn-info {
+			border-radius: 0.5rem;
+			font-weight: 600;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn-info:hover {
+			background-color: #17a2b8;
+		}
+
+		.alert-danger {
+			border-radius: 0.5rem;
+			font-weight: 600;
+		}    
