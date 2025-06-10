@@ -1122,7 +1122,6 @@ router.get('/reporte', (req, res) => {
             return res.status(500).send('Error del servidor al obtener reportes');
         }
 
-        // 👇 Aquí se envía la variable reportes correctamente
         res.render('reporte', { reportes: results || [] });
     });
 });
